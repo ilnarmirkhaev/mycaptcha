@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: text/html; charset=utf-8");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -24,7 +25,7 @@ function gen_captcha_image($code)
     $lines = rand(3,5);
     for ($i=0; $i<$lines; $i++)
     {
-        $color = imagecolorallocate($image, rand(0, 150), rand(0, 100), rand(0, 150)); // Случайный цвет c изображения
+        $color = imagecolorallocate($image, rand(0, 255), rand(0, 255), rand(0, 255)); // Случайный цвет c изображения
         imageline($image, rand(0, 20), rand(1, 100), rand(200, 250), rand(1, 100), $color);
     }
 
@@ -39,7 +40,7 @@ function gen_captcha_image($code)
 
     for ($i=0; $i<$lines; $i++)
     {
-        $color = imagecolorallocate($image, rand(0, 150), rand(0, 100), rand(0, 150)); // Случайный цвет c изображения
+        $color = imagecolorallocate($image, rand(0, 255), rand(0, 255), rand(0, 255)); // Случайный цвет c изображения
         imageline($image, rand(0, 20), rand(1, 100), rand(200, 250), rand(1, 100), $color);
     }
 

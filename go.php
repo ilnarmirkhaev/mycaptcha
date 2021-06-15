@@ -1,4 +1,4 @@
-<META http-equiv=content-type content="text/html; charset=UTF-8">
+<?PHP  header('Content-Type: text/html; charset=utf-8');?>
 <?php
     include("random_text.php");
 
@@ -34,7 +34,7 @@
             </head>
             <body>
                 <img src='img2/empty.jpg' alt='Go back!'>
-                <br><b><span style='color: #FF0000'>Error:</span> enter CAPTCHA!</b><br>
+                <br><b><span style='color: #FF0000'>Ошибка:</span> ты капчу забыл!</b><br>
                 <input type='button' value='Go back' onclick='history.go(-1)'>
             </body>
             </html>";
@@ -51,7 +51,7 @@
             </head>
             <body>
                 <img src='img2/nice.gif' alt='Great job!'>
-                <br><b>Great job!</b><br>
+                <br><b>Молодец, ты справился!</b><br>
                 <input type='button' value='Try again?' onclick='history.go(-1)'>
             </body>
             </html>";
@@ -68,7 +68,7 @@
             </head>
             <body>
                 <img src='img2/wrong.jpg' alt='Try again!'>
-                <br><b><span style='color: #FF0000'>Error:</span> wrong CAPTCHA!</b><br>
+                <br><b><span style='color: #FF0000'>Ошибка:</span> неверно введена капча!</b><br>
                 <input type='button' value='Try again' onclick='history.go(-1)'>
             </body>
             </html>";
@@ -86,8 +86,7 @@
         </head>
         <body>
             <img src='img2/sus.jpg' alt='Go away!'>
-            <br><b><span style='color: #FF0000'>Error:</span> you picked the wrong house, fool!</b>
-            <br><h1>Go away!</h1>
+            <br><b><span style='color: #FF0000'>Ошибка:</span> не стоило тебе сюда приходить!</b>
         </body>
         </html>";
         die();

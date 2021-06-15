@@ -1,3 +1,4 @@
+<?PHP  header("Content-Type: text/html; charset=utf-8");?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,32 +20,41 @@
     <title>MyCaptcha</title>
     <script type="text/javascript">
         function submitForm() {
-            let frm = document.getElementsByName('submit_form')[0];
-            frm.submit(); // Submit the form
-            frm.reset();  // Reset all form data
-            return false; // Prevent page refresh
+            let a = document.forms["submit_form"]["username"].value;
+            let b = document.forms["submit_form"]["email"].value;
+            let c = document.forms["submit_form"]["password"].value;
+
+            if (a == null || a === "", b == null || b === "", c == null || c === "") {
+                alert("Пожалуйста, заполните все поля!");
+                return false;
+            } else {
+                let frm = document.getElementsByName('submit_form')[0];
+                frm.submit(); // Submit the form
+                frm.reset();  // Reset all form data
+                return false; // Prevent page refresh
+            }
         }
     </script>
 </head>
 <body>
-    <h1>Try this cool form!</h1>
+    <h1>Пссс... Попробуй эту форму</h1>
     <form method="post" action="go.php" name="submit_form" enctype="multipart/form-data">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+        <label for="username">Имя пользователя</label>
+        <input type="text" id="username" name="username" required="required">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" required="required">
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password" required="required">
 
         <img src="captcha.php" id="captcha" width="250" height="100" alt="icon">
-        <input type="button" value="Reload Captcha" onclick="document.getElementById('captcha').src='captcha.php?rid=' + Math.random();">
+        <input type="button" value="Обновить" onclick="document.getElementById('captcha').src='captcha.php?rid=' + Math.random();">
 
-        <label for="captcha_text">CAPTCHA</label>
+        <label for="captcha_text">Введите капчу (текст с картинки выше)</label>
         <input type="text" id="captcha_text" name="captcha_text">
 
-        <input type="button" value="Sign up" onclick="submitForm();">
+        <input type="button" value="Войти" onclick="submitForm();">
     </form>
 
 </body>
